@@ -14,8 +14,11 @@ B = np.array_split(b, N)
 #配列計算
 C = A - B
 
-Z=100
+#結果を収納するリストを用意
+D = []
+
 for N in range(len(C)):
+    Z=100
     for M in range(len(C[N])):
         if abs(C[N][M]) <= 5:
             Z = Z
@@ -27,9 +30,9 @@ for N in range(len(C)):
             Z = Z-3
         else:
             Z = Z-5
+    D.append(Z)  # 結果を追加
 
-print(A)
-print(B) 
-print(C)
-print(C[0][0])
-print(Z)
+if max(D) >= 0:
+    print(max(D))
+else:
+    print(0)
