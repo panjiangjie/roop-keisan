@@ -14,19 +14,19 @@ B = np.array_split(b, N)
 #配列計算
 C = A - B
 
-Z = 100
-if C[0][0] <= 5:
-    Z = Z
-elif 5 < C[0][0] <= 10:
-    Z = Z-1
-elif 10 < C[0][0] <= 20:
-    Z = Z-2
-elif 20 < C[0][0] <= 30:
-    Z = Z-3
-else:
-    Z = Z-5
-
-
+Z=100
+for N in range(len(C)):
+    for M in range(len(C[N])):
+        if abs(C[N][M]) <= 5:
+            Z = Z
+        elif 5 < abs(C[N][M]) <= 10:
+            Z = Z-1
+        elif 10 < abs(C[N][M]) <= 20:
+            Z = Z-2
+        elif 20 < abs(C[N][M]) <= 30:
+            Z = Z-3
+        else:
+            Z = Z-5
 
 print(A)
 print(B) 
